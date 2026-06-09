@@ -98,6 +98,7 @@ namespace NMCMotionSDK
 			MC_CN_CONNECTED										=	0x000000F1,
 			MC_CN_CONNERROR										=	0x000000F2,
 
+
 			//PLCOpen Motion Command Response Error Defines (F/W)
 			MC_INVALID_SYSTEM_STATE								=	0x00010000, 
 			MC_UNSUPPORT_CMD									=	0x00020000,
