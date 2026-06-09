@@ -98,7 +98,7 @@
   <ItemGroup>
     <Reference Include="AxInterop.BTNENHLib4, Version=9.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\YJ PC\Desktop\AxInterop.BTNENHLib4.dll</HintPath>
+      <HintPath>Lib\AxInterop.BTNENHLib4.dll</HintPath>
     </Reference>
     <Reference Include="Basler.Pylon, Version=1.1.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
@@ -106,19 +106,19 @@
     </Reference>
     <Reference Include="Cognex.DataMan.CogNamer.PC, Version=5.6.3.122, Culture=neutral, PublicKeyToken=9f98866f2a3a2e78, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\FA\SCREW-C-V7.0\PGM\Cognex.DataMan.CogNamer.PC.dll</HintPath>
+      <HintPath>Lib\Cognex.DataMan.CogNamer.PC.dll</HintPath>
     </Reference>
     <Reference Include="Cognex.DataMan.SDK.Discovery.PC, Version=5.6.3.122, Culture=neutral, PublicKeyToken=9f98866f2a3a2e78, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\FA\SCREW-C-V7.0\PGM\Cognex.DataMan.SDK.Discovery.PC.dll</HintPath>
+      <HintPath>Lib\Cognex.DataMan.SDK.Discovery.PC.dll</HintPath>
     </Reference>
     <Reference Include="Cognex.DataMan.SDK.PC, Version=5.6.3.122, Culture=neutral, PublicKeyToken=9f98866f2a3a2e78, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\FA\SCREW-C-V7.0\PGM\Cognex.DataMan.SDK.PC.dll</HintPath>
+      <HintPath>Lib\Cognex.DataMan.SDK.PC.dll</HintPath>
     </Reference>
     <Reference Include="Cognex.DataMan.SDK.Utils.PC, Version=5.6.3.122, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\FA\SCREW-C-V7.0\PGM\Cognex.DataMan.SDK.Utils.PC.dll</HintPath>
+      <HintPath>Lib\Cognex.DataMan.SDK.Utils.PC.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>

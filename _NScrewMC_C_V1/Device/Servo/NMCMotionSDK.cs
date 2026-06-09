@@ -33,7 +33,8 @@ static class NMCDEF
     public const uint MAX_ALL_STATUS_SIZE    = 1536;	//Ver_0c010019_1 : 계산식 = (MAX_AXIS_CNT + MAX_AXES_GROUP_CNT)
 
 	public const uint MAX_LOGICAL_AXIS_COUNT   = 64;	//v12.1.0.41
-	public const uint MAX_LOGICAL_DEVICE_COUNT = 1024;  //v12.1.0.41
+	public const uint MAX_LOGICAL_DEVICE_COUNT = 1024;  //v12.1.0.41+
+
     public const uint MAX_DEVICE_NAME_SIZE     = 256;   //v12.1.0.64
 
     public const ushort INVALID_BOARD    = 0xFFFF;
