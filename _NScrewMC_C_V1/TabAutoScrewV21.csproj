@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.9.0.20240103\build\netstandard\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.9.0.20240103\build\netstandard\OpenCvSharp4.runtime.win.props')" />
+  <Import Project="..\packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A996DA4-892E-4E28-BDA4-11EB44EB272F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TabAutoScrewV2</RootNamespace>
+    <AssemblyName>TabAutoScrewV2_2Array_241206_2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>C:\FA\TabAutoScrewV2\PGM\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Out_Sorter.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>C:\FA\TabAutoScrewV2\PGM\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;Screw3Array</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>C:\FA\TabAutoScrewV2\PGM\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cognex.DataMan.CogNamer.PC">
+      <HintPath>Lib\Cognex.DataMan.CogNamer.PC.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.DataMan.SDK.Discovery.PC">
+      <HintPath>Lib\Cognex.DataMan.SDK.Discovery.PC.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.DataMan.SDK.PC">
+      <HintPath>Lib\Cognex.DataMan.SDK.PC.dll</HintPath>
+    </Reference>
+    <Reference Include="Cognex.DataMan.SDK.Utils.PC">
+      <HintPath>Lib\Cognex.DataMan.SDK.Utils.PC.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=7.0.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.7.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x64\Debug\NModbus4.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp4.4.9.0.20240103\lib\netstandard2.0\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenCvSharp4.Extensions.4.9.0.20240103\lib\netstandard2.0\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.4.1835, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.1.4\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SUserControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\FA\HRMAssyVision\PGM\x64\Debug\net8.0-windows8.0\SUserControls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.117.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.117.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.117.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Variable\InforManager.cs" />
+    <Compile Include="Data\Variable\InforModelImport.cs" />
+    <Compile Include="Data\Variable\InforProduct.cs" />
+    <Compile Include="Data\Variable\InforServoParam.cs" />
+    <Compile Include="Data\Variable\InforTeaching.cs" />
+    <Compile Include="Device\BCR\CognexDataMan.cs" />
+    <Compile Include="Device\Servo\AxisManager.cs" />
+    <Compile Include="Device\Servo\ecatAxis.cs" />
+    <Compile Include="Device\Servo\FastechAxis.cs" />
+    <Compile Include="Device\Servo\LIB_EziMOTIONPlusE.cs" />
+    <Compile Include="Device\Servo\MOTION_DEFINE_PlusE.cs" />
+    <Compile Include="Device\Servo\NMCMotionSDK.cs" />
+    <Compile Include="Device\Servo\SnetDevice.cs" />
+    <Compile Include="Device\TCP\NetWorkInterface.cs" />
+    <Compile Include="Form\Main Form\ID_DLG_SCREW_TEACH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_SCREW_TEACH.designer.cs">
+      <DependentUpon>ID_DLG_SCREW_TEACH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA_UNLOAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA_UNLOAD.designer.cs">
+      <DependentUpon>ID_DLG_DATA_UNLOAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA_LOAD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA_LOAD.designer.cs">
+      <DependentUpon>ID_DLG_DATA_LOAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\FormPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\FormPassWord.designer.cs">
+      <DependentUpon>FormPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_LOADER_MANUAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_LOADER_MANUAL.designer.cs">
+      <DependentUpon>IDC_LOADER_MANUAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_OUTCV_MANUAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_OUTCV_MANUAL.designer.cs">
+      <DependentUpon>IDC_OUTCV_MANUAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_PRESS_MC_SETTING.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_PRESS_MC_SETTING.designer.cs">
+      <DependentUpon>IDC_PRESS_MC_SETTING.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_INCV_MANUAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_INCV_MANUAL.designer.cs">
+      <DependentUpon>IDC_INCV_MANUAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_UNLOADER_MANUAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\IDC_UNLOADER_MANUAL.designer.cs">
+      <DependentUpon>IDC_UNLOADER_MANUAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_BCR_TEACH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_BCR_TEACH.Designer.cs">
+      <DependentUpon>ID_DLG_BCR_TEACH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_JIG_SCREW_MANUAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_JIG_SCREW_MANUAL.designer.cs">
+      <DependentUpon>ID_JIG_SCREW_MANUAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_UNIT_STEP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_UNIT_STEP.designer.cs">
+      <DependentUpon>ID_DLG_UNIT_STEP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_REGULATOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_REGULATOR.Designer.cs">
+      <DependentUpon>ID_DLG_DATA_REGULATOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_TEACH_IF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_TEACH_IF.Designer.cs">
+      <DependentUpon>ID_DLG_TEACH_IF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_TEACH_POSITION.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_TEACH_POSITION.Designer.cs">
+      <DependentUpon>ID_DLG_TEACH_POSITION.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_JOG_VELOCITY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_JOG_VELOCITY.designer.cs">
+      <DependentUpon>ID_DLG_DATA_JOG_VELOCITY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_MODEL_CHANGE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_MODEL_CHANGE.designer.cs">
+      <DependentUpon>ID_DLG_DATA_MODEL_CHANGE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_MOTOR_VELOCITY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_MOTOR_VELOCITY.designer.cs">
+      <DependentUpon>ID_DLG_DATA_MOTOR_VELOCITY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_TIME_DELAY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_TIME_DELAY.Designer.cs">
+      <DependentUpon>ID_DLG_DATA_TIME_DELAY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_PORT_SETTING.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_PORT_SETTING.Designer.cs">
+      <DependentUpon>ID_DLG_DATA_PORT_SETTING.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_SYS_MANAGER.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_DATA_SYS_MANAGER.Designer.cs">
+      <DependentUpon>ID_DLG_DATA_SYS_MANAGER.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_BOTTOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_BOTTOM.designer.cs">
+      <DependentUpon>ID_DLG_BOTTOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MSG_DISPLAY.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MSG_DISPLAY.designer.cs">
+      <DependentUpon>ID_DLG_MSG_DISPLAY.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_ALARM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_ALARM.designer.cs">
+      <DependentUpon>ID_DLG_ALARM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_IO_MONITOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_IO_MONITOR.designer.cs">
+      <DependentUpon>ID_DLG_IO_MONITOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MODE_RUN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MODE_RUN.designer.cs">
+      <DependentUpon>ID_DLG_MODE_RUN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_ORIGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_ORIGIN.designer.cs">
+      <DependentUpon>ID_DLG_ORIGIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_PRODUCT_INFOR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_PRODUCT_INFOR.designer.cs">
+      <DependentUpon>ID_DLG_PRODUCT_INFOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_UNIT_INIT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_UNIT_INIT.designer.cs">
+      <DependentUpon>ID_DLG_UNIT_INIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_KEYBOARD_VALUE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_KEYBOARD_VALUE.designer.cs">
+      <DependentUpon>ID_DLG_KEYBOARD_VALUE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="System Util\Alarm.cs" />
+    <Compile Include="System Util\CtrListView.cs" />
+    <Compile Include="System Util\CtrListViewScrew.cs" />
+    <Compile Include="System Util\DataManager.cs" />
+    <Compile Include="System Util\DataReadWrite.cs" />
+    <Compile Include="System Util\MyTool.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System Util\MyTool.Designer.cs">
+      <DependentUpon>MyTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System Util\SerialHelper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="System Util\CBbutton.cs" />
+    <Compile Include="System Util\Define.cs" />
+    <Compile Include="System Util\MSystem.cs" />
+    <Compile Include="Form\Main Form\ID_DLG_TEACH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_TEACH.designer.cs">
+      <DependentUpon>ID_DLG_TEACH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_LOG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_LOG.designer.cs">
+      <DependentUpon>ID_DLG_LOG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_MAIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_MAIN.designer.cs">
+      <DependentUpon>ID_DLG_MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_AUTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_AUTO.designer.cs">
+      <DependentUpon>ID_DLG_AUTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_DATA.designer.cs">
+      <DependentUpon>ID_DLG_DATA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_TITLE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Main Form\ID_DLG_TITLE.designer.cs">
+      <DependentUpon>ID_DLG_TITLE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_KEYBORAD_NUM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_KEYBORAD_NUM.designer.cs">
+      <DependentUpon>ID_DLG_KEYBORAD_NUM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MEMO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Sub Form\ID_DLG_MEMO.designer.cs">
+      <DependentUpon>ID_DLG_MEMO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System Util\SQLYJ.cs" />
+    <Compile Include="System Util\SystemIO.cs" />
+    <Compile Include="System Util\TimerDelay.cs" />
+    <Compile Include="Thread\1_Base\MTrLamp.cs" />
+    <Compile Include="Thread\1_Base\MTrLog.cs" />
+    <Compile Include="Thread\1_Base\MTrsAutoManager.cs" />
+    <Compile Include="Thread\1_Base\MTrsBuzzer.cs" />
+    <Compile Include="Thread\1_Base\MTrsGMESPoll.cs" />
+    <Compile Include="Thread\1_Base\MTrsLogGEIM.cs" />
+    <Compile Include="Thread\1_Base\MTrsOP.cs" />
+    <Compile Include="Thread\2_Work\MTrsInputCV1.cs" />
+    <Compile Include="Thread\2_Work\MTrsInputCV2.cs" />
+    <Compile Include="Thread\2_Work\MTrsJig.cs" />
+    <Compile Include="Thread\2_Work\MTrsLoader.cs" />
+    <Compile Include="Thread\2_Work\MTrsOutCV.cs" />
+    <Compile Include="Thread\2_Work\MTrsScrew.cs" />
+    <Compile Include="Thread\2_Work\MTrsShiftNG.cs" />
+    <Compile Include="Thread\2_Work\MTrsUnloader.cs" />
+    <Compile Include="Thread\3_Port\MyModbus.cs" />
+    <Compile Include="Thread\3_Port\PortLogNextMC.cs" />
+    <Compile Include="Thread\3_Port\PortLogPreMc.cs" />
+    <Compile Include="Thread\3_Port\SCrewPort.cs" />
+    <Compile Include="Thread\3_Port\GMESPort.cs" />
+    <Compile Include="Thread\3_Port\TPJog.cs" />
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_BOTTOM.resx">
+      <DependentUpon>ID_DLG_BOTTOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_SCREW_TEACH.resx">
+      <DependentUpon>ID_DLG_SCREW_TEACH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_DATA_UNLOAD.resx">
+      <DependentUpon>ID_DLG_DATA_UNLOAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_DATA_LOAD.resx">
+      <DependentUpon>ID_DLG_DATA_LOAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_TEACH.resx">
+      <DependentUpon>ID_DLG_TEACH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_LOG.resx">
+      <DependentUpon>ID_DLG_LOG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_MAIN.resx">
+      <DependentUpon>ID_DLG_MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_AUTO.resx">
+      <DependentUpon>ID_DLG_AUTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_DATA.resx">
+      <DependentUpon>ID_DLG_DATA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Main Form\ID_DLG_TITLE.resx">
+      <DependentUpon>ID_DLG_TITLE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\FormPassWord.resx">
+      <DependentUpon>FormPassWord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\IDC_LOADER_MANUAL.resx">
+      <DependentUpon>IDC_LOADER_MANUAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\IDC_OUTCV_MANUAL.resx">
+      <DependentUpon>IDC_OUTCV_MANUAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\IDC_PRESS_MC_SETTING.resx">
+      <DependentUpon>IDC_PRESS_MC_SETTING.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\IDC_INCV_MANUAL.resx">
+      <DependentUpon>IDC_INCV_MANUAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\IDC_UNLOADER_MANUAL.resx">
+      <DependentUpon>IDC_UNLOADER_MANUAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_BCR_TEACH.resx">
+      <DependentUpon>ID_DLG_BCR_TEACH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_JIG_SCREW_MANUAL.resx">
+      <DependentUpon>ID_JIG_SCREW_MANUAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_PRODUCT_INFOR.resx">
+      <DependentUpon>ID_DLG_PRODUCT_INFOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_UNIT_STEP.resx">
+      <DependentUpon>ID_DLG_UNIT_STEP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_REGULATOR.resx">
+      <DependentUpon>ID_DLG_DATA_REGULATOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_MSG_DISPLAY.resx">
+      <DependentUpon>ID_DLG_MSG_DISPLAY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_ALARM.resx">
+      <DependentUpon>ID_DLG_ALARM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_TEACH_IF.resx">
+      <DependentUpon>ID_DLG_TEACH_IF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_TEACH_POSITION.resx">
+      <DependentUpon>ID_DLG_TEACH_POSITION.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_IO_MONITOR.resx">
+      <DependentUpon>ID_DLG_IO_MONITOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_JOG_VELOCITY.resx">
+      <DependentUpon>ID_DLG_DATA_JOG_VELOCITY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_MODEL_CHANGE.resx">
+      <DependentUpon>ID_DLG_DATA_MODEL_CHANGE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_MOTOR_VELOCITY.resx">
+      <DependentUpon>ID_DLG_DATA_MOTOR_VELOCITY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_TIME_DELAY.resx">
+      <DependentUpon>ID_DLG_DATA_TIME_DELAY.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_PORT_SETTING.resx">
+      <DependentUpon>ID_DLG_DATA_PORT_SETTING.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_DATA_SYS_MANAGER.resx">
+      <DependentUpon>ID_DLG_DATA_SYS_MANAGER.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_MODE_RUN.resx">
+      <DependentUpon>ID_DLG_MODE_RUN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_ORIGIN.resx">
+      <DependentUpon>ID_DLG_ORIGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_UNIT_INIT.resx">
+      <DependentUpon>ID_DLG_UNIT_INIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_KEYBOARD_VALUE.resx">
+      <DependentUpon>ID_DLG_KEYBOARD_VALUE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_KEYBORAD_NUM.resx">
+      <DependentUpon>ID_DLG_KEYBORAD_NUM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Sub Form\ID_DLG_MEMO.resx">
+      <DependentUpon>ID_DLG_MEMO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System Util\MyTool.resx">
+      <DependentUpon>MyTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="app.manifest" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Data\Define Config\Config.ini" />
+    <None Include="Data\Define Config\ErrorMessage.ini" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System Util\App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_01auto_enable.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_02manual_enable.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_03data_enable.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_04teach_enable.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_05log_enable.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_hide.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\but_Exit.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Image\res\bg_bottom.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\[0]201905_0_104_srcImage.jpg" />
+    <None Include="Resources\NV_MainUI_Teach_Click.png" />
+    <None Include="Resources\NV_MainUI_Manual_Click.png" />
+    <None Include="Resources\NV_MainUI_Log_Click.png" />
+    <None Include="Resources\NV_MainUI_Data_Click.png" />
+    <None Include="Resources\NV_MainUI_Auto_Click.png" />
+    <None Include="Resources\NV_MainUI_Exit_Default.png" />
+    <None Include="Resources\NV_ETC_Exit_Default.png" />
+    <None Include="Resources\NV_MainUI_Hide_Default.png" />
+    <None Include="Resources\NV_MainUI_Log_Default.png" />
+    <None Include="Resources\NV_MainUI_Data_Default.png" />
+    <None Include="Resources\NV_MainUI_Teach_Default.png" />
+    <None Include="Resources\NV_MainUI_Auto_Default.png" />
+    <None Include="Image\res\bottom\Data_Form.png" />
+    <None Include="bin\Debug\Image\res\bottom\Data_Form.png" />
+    <None Include="bin\Debug\Image\res\Off.ico" />
+    <None Include="bin\Debug\Image\res\LedOn.ico" />
+    <None Include="bin\Debug\Image\res\On.ico" />
+    <None Include="Image\res\Next.ico" />
+    <None Include="Image\res\previous.ico" />
+    <None Include="Image\res\원점복귀실행.ico" />
+    <None Include="Image\res\나가기.ico" />
+    <None Include="bin\Debug\Image\res\My Icon\2734486-200.png" />
+    <None Include="Resources\pngtree-electric-motor-icon-monochrome-png-image_5265808.jpg" />
+    <None Include="Resources\11111.jpg" />
+    <None Include="Resources\111111.jpg" />
+    <None Include="Resources\11111-removebg-preview.png" />
+    <None Include="Resources\Motor.bmp" />
+    <None Include="Resources\Motor2.bmp" />
+    <None Include="Resources\Motor4.gif" />
+    <None Include="Resources\motor5.gif" />
+    <None Include="Resources\motor.gif" />
+    <None Include="Resources\motor1.gif" />
+    <None Include="Image\res\My Icon\2734486-200.png" />
+    <None Include="Image\res\System_Initialize.png" />
+    <None Include="Image\res\My Icon\192px-CD_icon.svg.png" />
+    <None Include="Image\Resources\192px-CD_icon.svg.gif" />
+    <None Include="Image\res\My Icon\Manager.gif" />
+    <None Include="Image\res\My Icon\Model Data.gif" />
+    <None Include="Image\res\My Icon\Manualhandler.gif" />
+    <None Include="Image\res\서보OFF.ico" />
+    <None Include="Image\res\서보ON.ico" />
+    <None Include="Image\res\전부취소.ico" />
+    <None Include="Image\res\My Icon\dc68kBgc9.png" />
+    <None Include="Image\res\My Icon\Comport.png" />
+    <None Include="Image\res\My Icon\dc68kBgc9.gif" />
+    <None Include="Image\res\저장.ico" />
+    <None Include="Image\res\Exit.ico" />
+    <None Include="Image\res\main\front_img_90.bmp" />
+    <None Include="Image\res\main\front_img_90_1.png" />
+    <None Include="Image\res\main\front_img_90_2.png" />
+    <None Include="Image\res\main\UB_img_1.bmp" />
+    <None Include="Image\res\main\front_img_2.bmp" />
+    <None Include="Image\res\main\front_img_1.bmp" />
+    <None Include="Image\res\main\phone_2.png" />
+    <None Include="Image\res\main\phone_1.png" />
+    <None Include="Image\res\Dis.ico" />
+    <None Include="Image\res\main\Dis.png" />
+    <None Include="Image\res\Dis.gif" />
+    <None Include="Image\res\main\Dis.gif" />
+    <None Include="Image\res\check.png" />
+    <None Include="Image\res\Select.png" />
+    <None Include="Image\res\UnSelect.png" />
+    <Content Include="Out_Sorter.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxBTNENHLib4">
+      <Guid>{40B5CE80-C5A8-11D2-8183-00002440DFD8}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="BTNENHLib4">
+      <Guid>{40B5CE80-C5A8-11D2-8183-00002440DFD8}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.115.5\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.9.0.20240103\build\netstandard\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.9.0.20240103\build\netstandard\OpenCvSharp4.runtime.win.props'))" />
+  </Target>
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.117.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
